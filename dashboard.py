@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import os
 import plotly.express as px
 from plotly.subplots import make_subplots
 import plotly.graph_objects as go
@@ -12,10 +13,10 @@ st.set_page_config(
  )
 st.title('GOAT Analysis')
 
-
-fdf = pd.read_csv(r'Cleaned Data\federer_stats_cleaned.csv')
-ndf = pd.read_csv(r'Cleaned Data\nadal_stats_cleaned.csv')
-ddf = pd.read_csv(r'Cleaned Data\djokovic_stats_cleaned.csv')
+dir_path = "Cleaned-Data"
+fdf = pd.read_csv(os.path.join(dir_path,"federer_stats_cleaned.csv"))
+ndf = pd.read_csv(os.path.join(dir_path,"nadal_stats_cleaned.csv"))
+ddf = pd.read_csv(os.path.join(dir_path,"djokovic_stats_cleaned.csv"))
 
 
 fdf.reset_index(inplace=True)
